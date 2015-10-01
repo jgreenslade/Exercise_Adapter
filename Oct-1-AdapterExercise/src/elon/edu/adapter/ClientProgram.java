@@ -23,11 +23,11 @@ public class ClientProgram {
    *        currently used by application.
    */
   public static void main(String[] args) {
-    ChemicalCompound water = new Compound("Water");
+    ChemicalCompound water = new CompoundAdapter("Water");
     water.display();
-    ChemicalCompound benzene = new Compound("Benzene");
+    ChemicalCompound benzene = new CompoundAdapter("Benzene");
     benzene.display();
-    ChemicalCompound alcohol = new Compound("Alcohol");
+    ChemicalCompound alcohol = new CompoundAdapter("Alcohol");
     alcohol.display();
     System.exit(0);
   }
