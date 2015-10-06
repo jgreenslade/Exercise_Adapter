@@ -10,9 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CompoundAdapterTest {
-	
+
 	private ChemicalCompound water;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		water = new CompoundAdapter("Water");
@@ -27,27 +27,33 @@ public class CompoundAdapterTest {
 	public void testDisplay() {
 		ByteArrayOutputStream b = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(b));
-		assertEquals("",water.display());
+		water.display();
+		assertEquals(b.toString().trim(),
+				"Compound: Water\n" 
+						+ "Formula: H2O\n" 
+						+ "Weight: 18.0\n" 
+						+ "Melting Point: 0.0\n" 
+						+ "Boiling Point: 100.0");
 	}
 
 	@Test
 	public void testGetBoilingPoint() {
-		fail("Not yet implemented");
+		assertEquals(water.getBoilingPoint(), 100.0, 0.1);
 	}
 
 	@Test
 	public void testGetMeltingPoint() {
-		fail("Not yet implemented");
+		assertEquals(water.getMeltingPoint(), 0.0, 0.1);
 	}
 
 	@Test
 	public void testGetMolecularFormula() {
-		fail("Not yet implemented");
+		assertEquals(water.getMolecularFormula(), "H2O");
 	}
 
 	@Test
 	public void testGetMolecularWeight() {
-		fail("Not yet implemented");
+		assertEquals(water.getMolecularWeight(), 18.0, 0.1);
 	}
 
 }

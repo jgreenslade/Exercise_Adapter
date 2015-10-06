@@ -8,27 +8,36 @@ import org.junit.Test;
 
 public class ChemicalDataBankTest {
 
+	private ChemicalDataBank b ;
+	
 	@Before
 	public void setUp() throws Exception {
+		b = new ChemicalDataBank();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		b = null;
 	}
 
 	@Test
 	public void testGetCriticalPoint() {
-		fail("Not yet implemented");
+		assertEquals(b.getCriticalPoint("water", ""), 100.0, 0.1);
+	}
+	
+	@Test
+	public void testGetCriticalPoint2() {
+		assertEquals(b.getCriticalPoint("water", "M"), 0.0, 0.1);
 	}
 
 	@Test
 	public void testGetMolecularStructure() {
-		fail("Not yet implemented");
+		assertEquals(b.getMolecularStructure("water"), "H2O");
 	}
 
 	@Test
 	public void testGetMolecularWeight() {
-		fail("Not yet implemented");
+		assertEquals(b.getMolecularWeight("water"), 18.0, 0.1);
 	}
 
 }
